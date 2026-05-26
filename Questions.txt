@@ -1,0 +1,43 @@
+Hackathon World Models
+Worlds Models en action : apprendre, prédire et planifier avec HackTheWorld(s)
+Mai 2026
+
+1. Questions d’inscription
+
+Ces questions visent à s’assurer que vous avez exploré le dépôt GitHub associé. Elles évaluent votre familiarité avec PyTorch, votre capacité à naviguer dans le dépôt https://github.com/rayanemy/eb_jepa (basé sur https://github.com/facebookresearch/eb_jepa), ainsi que votre compréhension des principaux choix techniques mis en avant dans les exemples du dépôt.
+
+1.1. Questions ouvertes
+
+1. Quel est le plus grand projet que vous avez réalisé avec PyTorch ?
+
+2. Prévention de l’effondrement des représentations dans EB-JEPA
+
+Dans les trois exemples Image JEPA, Video JEPA et AC Video JEPA du dépôt eb-jepa, quels sont les mécanismes de régularisation utilisés pour éviter l’effondrement des représentations ? Précisez les différences entre les trois exemples.
+
+3. Gestion des ressources GPU
+
+Les configurations par défaut du dépôt sont pensées pour des GPU récents de type H100. Si vous deviez adapter un entraînement à un GPU disposant de moins de mémoire, quels paramètres modifieriez-vous en priorité dans la configuration, et pourquoi ?
+
+1.2. QCM technique (Basé sur le dépôt https://github.com/rayanemy/eb_jepa)
+
+4. Lancer un entraînement AC Video JEPA
+
+Vous souhaitez entraîner l’exemple AC Video JEPA sur l’environnement Two Rooms. Quelle proposition est correcte ?
+
+A) Il faut d’abord générer un dataset Two Rooms sur disque, puis lancer python -m examples.ac_video_jepa.main --data.path ./datasets/two_rooms/
+B) L’entraînement se lance avec python -m examples.ac_video_jepa.main --fname examples/ac_video_jepa/cfgs/train.yaml, et les trajectoires Two Rooms sont générées à la volée pendant l’entraînement
+C) Il faut télécharger le dataset Two Rooms depuis Hugging Face avant de lancer l’entraînement
+D) python -m examples.ac_video_jepa.main télécharge automatiquement Two Rooms depuis les serveurs de l’Université de Toronto, comme pour Moving MNIST
+
+Votre réponse : 
+
+5. Adapter l’encodeur à un nouveau domaine
+
+Vous souhaitez utiliser le framework AC Video JEPA pour un environnement avec des observations RGB en 128×128, à la place des observations utilisées dans l’exemple Two Rooms. Que faut-il modifier ?
+
+A) Modifier uniquement la configuration YAML, car l’encodeur s’adapte automatiquement à n’importe quelle taille d’entrée et à n’importe quel nombre de canaux
+B) Modifier uniquement les statistiques de normalisation, le reste du pipeline étant indépendant du domaine
+C) Remplacer uniquement le nom de l’encodeur dans la configuration, sans toucher au reste
+D) Adapter l’architecture de l’encodeur au nouveau type d’entrée, mettre à jour la configuration, et recalculer les statistiques de normalisation du nouveau dataset
+
+Votre réponse :
